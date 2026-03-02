@@ -1,10 +1,10 @@
 name: Selenium CI
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+
 
 jobs:
   test:
@@ -30,4 +30,4 @@ jobs:
         uses: Browser-actions/setup-chrome@v1
 
       - name: Run Tests
-        run: Mvn clean test
+        run: mvn clean test
