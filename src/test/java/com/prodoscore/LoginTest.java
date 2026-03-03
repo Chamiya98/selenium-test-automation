@@ -1,20 +1,23 @@
 package com.prodoscore;
 
+
+import com.prodoscore.listeners.ExtentListener;
 import com.prodoscore.pages.LoginPage;
-import com.prodoscore.utils.ConfigReader;
-import com.prodoscore.utils.TestData;
+import com.prodoscore.pages.models.LoginData;
+import com.prodoscore.pages.utils.ConfigReader;
+import com.prodoscore.dataprovider.TestData;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.util.Map;
 import java.util.Objects;
 
-
+@Listeners(ExtentListener.class)
 public class LoginTest {
     WebDriver driver;
     LoginPage loginPage;
@@ -34,14 +37,12 @@ public class LoginTest {
     }
 
     @Test(dataProvider = "loginData", dataProviderClass = TestData.class)
-    public void testLogin(Map<String, String> data) {
+    public void testLogin(LoginData data) {
         loginPage = new LoginPage(driver);
 
-        loginPage.enterUsername(data.get("username"));
-        loginPage.enterPassword(data.get("password"));
-        loginPage.clickLoginButton();
+        loginPage.login(data.getUsername(), data.getPassword());
 
-        validateLoginResult(data.get("expectedResult"));
+        validateLoginResult(data.getExpectedResult());
 
         softAssert.assertAll();
 

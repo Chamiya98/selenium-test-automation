@@ -1,15 +1,18 @@
 [
   {
+    "testCaseName": "TC01_Valid_Login",
     "username": "standard_user",
     "password": "secret_sauce",
     "expectedResult": "success"
   },
   {
+    "testCaseName": "TC02_Locked_User",
     "username": "locked_out_user",
     "password": "secret_sauce",
     "expectedResult": "Epic sadface: Sorry, this user has been locked out."
   },
   {
+    "testCaseName": "TC03_Problem_User",
     "username": "problem_user",
     "password": "secret_sauce",
     "expectedResult": "success"

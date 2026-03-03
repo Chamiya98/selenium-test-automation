@@ -1,11 +1,10 @@
-package com.prodoscore.utils;
+package com.prodoscore.listeners;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
+import com.prodoscore.pages.utils.ExtentManager;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
+import com.aventstack.extentreports.*;
 
 public class ExtentListener implements ITestListener {
 
@@ -29,12 +28,7 @@ public class ExtentListener implements ITestListener {
     }
 
     @Override
-    public void onTestSkipped(ITestResult result) {
-        test.get().skip("Test Skipped");
-    }
-
-    @Override
     public void onFinish(ITestContext context) {
-        extent.flush();
+        extent.flush();   // 🔥 THIS IS VERY IMPORTANT
     }
 }

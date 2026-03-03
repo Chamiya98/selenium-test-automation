@@ -1,4 +1,4 @@
-package com.prodoscore.utils;
+package com.prodoscore.pages.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;

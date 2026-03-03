@@ -1,4 +1,4 @@
-package com.prodoscore.utils;
+package com.prodoscore.pages.utils;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;

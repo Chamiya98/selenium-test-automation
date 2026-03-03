@@ -1,5 +1,6 @@
-package com.prodoscore.utils;
+package com.prodoscore.dataprovider;
 
+import com.prodoscore.pages.utils.JsonDataReader;
 import org.testng.annotations.DataProvider;
 
 public class TestData {
